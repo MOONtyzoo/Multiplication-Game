@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,8 +8,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] ScreenSwitcher screenSwitcher;
     [SerializeField] GameCountdown gameCountdown;
     [SerializeField] QuestionTimer questionTimer;
+    [SerializeField] QuestionHandler questionHandler;
     [SerializeField] Button startButton;
     [SerializeField] Button quitButton;
+    [SerializeField] Button restartButton;
 
     private enum GameStates
     {
@@ -22,7 +26,8 @@ public class GameManager : MonoBehaviour
     {
         startButton.onClick.AddListener(EnterCountdown);
         gameCountdown.OnCountdownCompleted += EnterGameplay;
-        quitButton.onClick.AddListener(EnterMenu);
+        quitButton.onClick.AddListener(QuitGame);
+        restartButton.onClick.AddListener(EnterCountdown);
     }
 
     private void Start()
@@ -36,6 +41,12 @@ public class GameManager : MonoBehaviour
         screenSwitcher.SwitchScreen(ScreenTypes.Menu);
     }
 
+    private void QuitGame()
+    {
+        EnterMenu();
+        Application.Quit();
+    }
+
     private void EnterCountdown()
     {
         currentState = GameStates.Countdown;
@@ -47,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameStates.Gameplay;
         screenSwitcher.SwitchScreen(ScreenTypes.Gameplay);
+        questionHandler.GenerateQuestion();
         questionTimer.StartCountdown();
     }
 }

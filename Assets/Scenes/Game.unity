@@ -801,6 +801,38 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 31.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2110591156}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnswerQuestion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 176308688}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 8158800142597539326, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
       propertyPath: m_Name
       value: AnswerButton2
@@ -815,6 +847,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2466856815526978533, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
   m_PrefabInstance: {fileID: 176308686}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &176308688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4313959166347365703, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+  m_PrefabInstance: {fileID: 176308686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &265435843
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,12 +883,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265435843}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 961.3791, y: 500.03207, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2110591155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &265435845
 MonoBehaviour:
@@ -1023,6 +1066,38 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2110591156}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnswerQuestion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 341409725}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 8158800142597539326, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
       propertyPath: m_Name
       value: AnswerButton3
@@ -1037,6 +1112,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2466856815526978533, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
   m_PrefabInstance: {fileID: 341409723}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &341409725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4313959166347365703, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+  m_PrefabInstance: {fileID: 341409723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1444,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &727297179 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+  m_PrefabInstance: {fileID: 341409723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &739804345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,6 +2006,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 738.09, y: 476.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1559168387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+  m_PrefabInstance: {fileID: 176308686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1690883991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+  m_PrefabInstance: {fileID: 3492212051515157923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1789713029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2153,54 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &1837850674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837850675}
+  - component: {fileID: 1837850676}
+  m_Layer: 0
+  m_Name: QuestionHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837850675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837850674}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 961.3791, y: 500.03207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2110591155}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837850676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837850674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db718017180b2a34dac48f4d7d125b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionGiver
+  questionText: {fileID: 1135794144}
+  answerButton1: {fileID: 1690883991}
+  answerButton2: {fileID: 1559168387}
+  answerButton3: {fileID: 727297179}
 --- !u!1 &1891825670
 GameObject:
   m_ObjectHideFlags: 8
@@ -2523,6 +2690,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2118332395}
+  - {fileID: 265435844}
+  - {fileID: 1837850675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2110591156
@@ -2540,8 +2709,10 @@ MonoBehaviour:
   screenSwitcher: {fileID: 2118332396}
   gameCountdown: {fileID: 172940034}
   questionTimer: {fileID: 265435845}
+  questionHandler: {fileID: 1837850676}
   startButton: {fileID: 2104824915}
   quitButton: {fileID: 18814063}
+  restartButton: {fileID: 1920593160}
 --- !u!1 &2118332394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +2849,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2110591156}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AnswerQuestion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 3492212051515157924}
+    - target: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+      objectReference: {fileID: 0}
     - target: {fileID: 8158800142597539326, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
       propertyPath: m_Name
       value: AnswerButton1
@@ -2687,6 +2890,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+--- !u!114 &3492212051515157924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4313959166347365703, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
+  m_PrefabInstance: {fileID: 3492212051515157923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2695,7 +2909,6 @@ SceneRoots:
   - {fileID: 1021996917}
   - {fileID: 2110591155}
   - {fileID: 172940035}
-  - {fileID: 265435844}
   - {fileID: 1891825671}
   - {fileID: 669055684}
   - {fileID: 660712585}
