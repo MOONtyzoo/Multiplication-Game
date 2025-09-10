@@ -6,14 +6,13 @@ using UnityEngine.UI;
 public class GameCountdown : MonoBehaviour
 {
     private Timer timer;
-    [SerializeField] CanvasGroup menuScreen;
-    [SerializeField] CanvasGroup countdownScreen;
+    [SerializeField] ScreenSwitcher screenSwitcher;
     [SerializeField] TextMeshProUGUI countdownText;
 
 
     public void InitiateCountdownScreen()
     {
-        ChangeScreen();
+        screenSwitcher.SwitchScreen(ScreenTypes.Countdown);
         timer.StartTimer(5);
     }
     private void Awake()
@@ -25,26 +24,13 @@ public class GameCountdown : MonoBehaviour
     {
         
         timer.OnTimerTicked += StartCountdown;
-        timer.OnTimerCompleted += () => countdownText.text = "Go";
+        timer.OnTimerCompleted += () => countdownText.text = "Go!";
         
     }
-
 
     private void StartCountdown(int value)
     {
         value = timer.GetTimerValue();
         countdownText.text = value.ToString();
-    }
-
-    private void ChangeScreen()
-    {
-        Debug.Log("ChangeScreen");
-        menuScreen.alpha = 0;
-        menuScreen.interactable = false;
-        menuScreen.blocksRaycasts = false;
-        
-        countdownScreen.alpha = 1;
-        countdownScreen.interactable = true;
-        countdownScreen.blocksRaycasts = true;
     }
 }

@@ -686,8 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20781deb1fd734d2585eee148c64b5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameCountdown
-  menuScreen: {fileID: 1802769288}
-  countdownScreen: {fileID: 1979750800}
+  screenSwitcher: {fileID: 2118332396}
   countdownText: {fileID: 1271769211}
 --- !u!4 &172940035
 Transform:
@@ -1672,7 +1671,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 910.46, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271769211
 MonoBehaviour:
@@ -2406,6 +2405,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104824913}
   m_CullTransparentMesh: 1
+--- !u!1 &2118332394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118332395}
+  - component: {fileID: 2118332396}
+  m_Layer: 0
+  m_Name: ScreenSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118332395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118332394}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118332396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118332394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac04de7fdf091fd47bb6dfa318e731b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenSwitcher
+  screens:
+  - {fileID: 1802769288}
+  - {fileID: 1979750800}
+  - {fileID: 739804347}
 --- !u!1001 &3492212051515157923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2508,7 +2555,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 172940035}
+  - {fileID: 2118332395}
   - {fileID: 1891825671}
   - {fileID: 669055684}
   - {fileID: 660712585}
-  - {fileID: 172940035}
