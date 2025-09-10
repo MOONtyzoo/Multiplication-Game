@@ -21,6 +21,7 @@ public class ScreenSwitcher : MonoBehaviour
         {
             ScreenTypes screenType = (ScreenTypes)i;
             screensDict.Add(screenType, screens[i]);
+            screens[i].alpha = 0;
         }
 
         SwitchScreen(ScreenTypes.Menu);
