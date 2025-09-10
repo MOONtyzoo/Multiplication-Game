@@ -5,16 +5,11 @@ using UnityEngine.UI;
 
 public class GameCountdown : MonoBehaviour
 {
+    public event Action OnCountdownCompleted;
+
     private Timer timer;
-    [SerializeField] ScreenSwitcher screenSwitcher;
     [SerializeField] TextMeshProUGUI countdownText;
 
-
-    public void InitiateCountdownScreen()
-    {
-        screenSwitcher.SwitchScreen(ScreenTypes.Countdown);
-        timer.StartTimer(5);
-    }
     private void Awake()
     {
         timer = new Timer(this);
@@ -22,13 +17,21 @@ public class GameCountdown : MonoBehaviour
 
     private void Start()
     {
-        
-        timer.OnTimerTicked += StartCountdown;
-        timer.OnTimerCompleted += () => countdownText.text = "Go!";
-        
+
+        timer.OnTimerTicked += UpdateText;
+        timer.OnTimerCompleted += () =>
+        {
+            countdownText.text = "Go!";
+            OnCountdownCompleted.Invoke();
+        };
     }
 
-    private void StartCountdown(int value)
+    public void StartCountdown()
+    {
+        timer.StartTimer(5);
+    }
+
+    private void UpdateText(int value)
     {
         value = timer.GetTimerValue();
         countdownText.text = value.ToString();

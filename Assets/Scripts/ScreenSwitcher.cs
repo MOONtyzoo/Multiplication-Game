@@ -5,7 +5,7 @@ public enum ScreenTypes
 {
     Menu,
     Countdown,
-    Game,
+    Gameplay,
 }
 
 public class ScreenSwitcher : MonoBehaviour
