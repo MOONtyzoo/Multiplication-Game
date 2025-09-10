@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] ScreenSwitcher screenSwitcher;
     [SerializeField] GameCountdown gameCountdown;
+    [SerializeField] QuestionTimer questionTimer;
     [SerializeField] Button startButton;
     [SerializeField] Button quitButton;
 
@@ -46,5 +47,6 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameStates.Gameplay;
         screenSwitcher.SwitchScreen(ScreenTypes.Gameplay);
+        questionTimer.StartCountdown();
     }
 }
