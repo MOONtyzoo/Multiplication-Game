@@ -1,14 +1,13 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameCountdown : MonoBehaviour
 {
     public event Action OnCountdownCompleted;
 
     private Timer timer;
-    [SerializeField] TextMeshProUGUI countdownText;
+    [SerializeField] private TextMeshProUGUI countdownText;
 
     private void Awake()
     {
@@ -21,19 +20,24 @@ public class GameCountdown : MonoBehaviour
         timer.OnTimerTicked += UpdateText;
         timer.OnTimerCompleted += () =>
         {
-            countdownText.text = "Go!";
             OnCountdownCompleted.Invoke();
         };
     }
 
     public void StartCountdown()
     {
-        timer.StartTimer(5);
+        timer.StartTimer(6);
     }
 
     private void UpdateText(int value)
     {
-        value = timer.GetTimerValue();
-        countdownText.text = value.ToString();
+        if (timer.GetTimerValue() > 1)
+        {
+            countdownText.text = (value-1).ToString();   
+        }
+        else
+        {
+            countdownText.text = "Go!";
+        }
     }
 }
