@@ -1802,6 +1802,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271769209}
   m_CullTransparentMesh: 1
+--- !u!1 &1394096320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394096322}
+  - component: {fileID: 1394096321}
+  m_Layer: 0
+  m_Name: QuestionTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1394096321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394096320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973998a28ccd48cdb838d63bca2e5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionTimer
+  countdownText: {fileID: 843039457}
+--- !u!4 &1394096322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394096320}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492759157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +2515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   screenSwitcher: {fileID: 2118332396}
   gameCountdown: {fileID: 172940034}
+  questionTimer: {fileID: 1394096321}
   startButton: {fileID: 2104824915}
   quitButton: {fileID: 18814063}
 --- !u!1 &2118332394
@@ -2625,6 +2671,7 @@ SceneRoots:
   - {fileID: 1021996917}
   - {fileID: 2110591155}
   - {fileID: 172940035}
+  - {fileID: 1394096322}
   - {fileID: 1891825671}
   - {fileID: 669055684}
   - {fileID: 660712585}
