@@ -815,6 +815,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2466856815526978533, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
   m_PrefabInstance: {fileID: 176308686}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &265435843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265435844}
+  - component: {fileID: 265435845}
+  m_Layer: 0
+  m_Name: QuestionTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &265435844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265435843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 961.3791, y: 500.03207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &265435845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265435843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973998a28ccd48cdb838d63bca2e5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionTimer
+  countdownText: {fileID: 843039457}
 --- !u!1 &280473294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   screenSwitcher: {fileID: 2118332396}
   gameCountdown: {fileID: 172940034}
+  questionTimer: {fileID: 265435845}
   startButton: {fileID: 2104824915}
   quitButton: {fileID: 18814063}
 --- !u!1 &2118332394
@@ -2649,6 +2695,7 @@ SceneRoots:
   - {fileID: 1021996917}
   - {fileID: 2110591155}
   - {fileID: 172940035}
+  - {fileID: 265435844}
   - {fileID: 1891825671}
   - {fileID: 669055684}
   - {fileID: 660712585}
