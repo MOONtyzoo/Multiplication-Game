@@ -12,11 +12,10 @@ public class QuestionHandler : MonoBehaviour
     [SerializeField] private Button answerButton1;
     [SerializeField] private Button answerButton2;
     [SerializeField] private Button answerButton3;
+
     private Button[] answerButtons;
     private TMP_Text[] buttonsText;
-    private int correctAnswer;
-
-
+    private int product;
 
     private void Awake()
     {
@@ -24,43 +23,45 @@ public class QuestionHandler : MonoBehaviour
         buttonsText = new TMP_Text[answerButtons.Length];
         for (int i = 0; i < answerButtons.Length; i++)
         {
-            buttonsText[i] = answerButtons[i].GetComponentInChildren<TMP_Text>();
+            TMP_Text buttonText = answerButtons[i].GetComponentInChildren<TMP_Text>();
+            buttonsText[i] = buttonText;
+            answerButtons[i].onClick.AddListener(() => AnswerQuestion(buttonText));
         }
-        // I tried to instantiate these in the above for loop, but for some reason it the i would always be answerButtons.Length 
-        answerButton1.onClick.AddListener(() => AnswerQuestion(buttonsText[0]));
-        answerButton2.onClick.AddListener(() => AnswerQuestion(buttonsText[1]));
-        answerButton3.onClick.AddListener(() => AnswerQuestion(buttonsText[2]));
     }
+    
     public void GenerateQuestion()
     {
-        int multiplicand = UnityEngine.Random.Range(0, 10);
-        int multiplier = UnityEngine.Random.Range(0, 10);
-        correctAnswer = multiplicand * multiplier;
+        int multiplicand = UnityEngine.Random.Range(0, 13);
+        int multiplier = UnityEngine.Random.Range(0, 13);
+        product = multiplicand * multiplier;
+
         questionText.text = "What is " + multiplicand + " * " + multiplier;
-        int answerChoice = UnityEngine.Random.Range(0, answerButtons.Length-1);
-        buttonsText[answerChoice].SetText(correctAnswer.ToString());
+        
+        int answerChoice = UnityEngine.Random.Range(0, answerButtons.Length - 1);
+        buttonsText[answerChoice].SetText(product.ToString());
+
         for (int i = 0; i < answerButtons.Length; i++)
         {
             if (i != answerChoice)
-                buttonsText[i].SetText(UnityEngine.Random.Range(0, 100).ToString());
+                buttonsText[i].SetText(UnityEngine.Random.Range(0, 145).ToString());
         }
     }
 
     public void AnswerQuestion(TMP_Text TMP)
     {
-        if (TMP.text == correctAnswer.ToString())
+        if (TMP.text == product.ToString())
             print("Correct Answer");
         else
             print("Incorrect Answer");
-        DisableAnswers();
-
+        
+        SetAnswerButtonsEnabled(false);
     }
 
-    public void DisableAnswers()
+    public void SetAnswerButtonsEnabled(bool enabled)
     {
         for (int i = 0; i < answerButtons.Length; i++)
         {
-            answerButtons[i].enabled = false;
+            answerButtons[i].enabled = enabled;
         }
     }
 }
