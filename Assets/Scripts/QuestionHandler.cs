@@ -31,7 +31,7 @@ public class QuestionHandler : MonoBehaviour
         int multiplier = UnityEngine.Random.Range(0, 13);
         product = multiplicand * multiplier;
 
-        questionText.text = "What is " + multiplicand + " * " + multiplier;
+        questionText.text = "What is " + multiplicand + " X " + multiplier;
         
         int answerChoice = UnityEngine.Random.Range(0, answerButtons.Count - 1);
         buttonsText[answerChoice].SetText(product.ToString());
