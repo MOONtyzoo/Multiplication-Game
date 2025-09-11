@@ -20,7 +20,7 @@ public class QuestionTimer : MonoBehaviour
         timer.OnTimerTicked += UpdateText;
         timer.OnTimerCompleted += () =>
         {
-            countdownText.text = "Time Ran out!";
+            countdownText.text = "Times up!";
             OnCountdownCompleted?.Invoke();
         };
     }

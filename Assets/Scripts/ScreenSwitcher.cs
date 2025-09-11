@@ -21,7 +21,7 @@ public class ScreenSwitcher : MonoBehaviour
         {
             ScreenTypes screenType = (ScreenTypes)i;
             screensDict.Add(screenType, screens[i]);
-            screens[i].alpha = 0;
+            SetScreenEnabled(screens[i], false);
         }
 
         SwitchScreen(ScreenTypes.Menu);
@@ -32,17 +32,20 @@ public class ScreenSwitcher : MonoBehaviour
         CanvasGroup oldScreen = currentScreen;
         if (oldScreen != null)
         {
-            oldScreen.alpha = 0;
-            oldScreen.interactable = false;
-            oldScreen.blocksRaycasts = false;
+            SetScreenEnabled(currentScreen, false);
         }
 
         currentScreen = screensDict[newScreenType];
         if (currentScreen != null)
         {
-            currentScreen.alpha = 1;
-            currentScreen.interactable = true;
-            currentScreen.blocksRaycasts = true;
+            SetScreenEnabled(currentScreen, true);
         }
+    }
+
+    private void SetScreenEnabled(CanvasGroup screen, bool enabled)
+    {
+        screen.alpha = enabled ? 1 : 0;
+        screen.blocksRaycasts = enabled;
+        screen.interactable = enabled;
     }
 }
