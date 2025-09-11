@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -9,23 +10,18 @@ public class QuestionHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private QuestionTimer questionTimer;
-    [SerializeField] private Button answerButton1;
-    [SerializeField] private Button answerButton2;
-    [SerializeField] private Button answerButton3;
 
-    private Button[] answerButtons;
-    private TMP_Text[] buttonsText;
+    [SerializeField] private List<Button> answerButtons = new List<Button>();
+    private List<TMP_Text> buttonsText = new List<TMP_Text>();
     private int product;
 
     private void Awake()
     {
-        answerButtons = new Button[] { answerButton1, answerButton2, answerButton3};
-        buttonsText = new TMP_Text[answerButtons.Length];
-        for (int i = 0; i < answerButtons.Length; i++)
+        foreach (Button answerButton in answerButtons)
         {
-            TMP_Text buttonText = answerButtons[i].GetComponentInChildren<TMP_Text>();
-            buttonsText[i] = buttonText;
-            answerButtons[i].onClick.AddListener(() => AnswerQuestion(buttonText));
+            TMP_Text buttonText = answerButton.GetComponentInChildren<TMP_Text>();
+            buttonsText.Add(buttonText);
+            answerButton.onClick.AddListener(() => AnswerQuestion(buttonText));
         }
     }
     
@@ -37,10 +33,10 @@ public class QuestionHandler : MonoBehaviour
 
         questionText.text = "What is " + multiplicand + " * " + multiplier;
         
-        int answerChoice = UnityEngine.Random.Range(0, answerButtons.Length - 1);
+        int answerChoice = UnityEngine.Random.Range(0, answerButtons.Count - 1);
         buttonsText[answerChoice].SetText(product.ToString());
 
-        for (int i = 0; i < answerButtons.Length; i++)
+        for (int i = 0; i < answerButtons.Count; i++)
         {
             if (i != answerChoice)
                 buttonsText[i].SetText(UnityEngine.Random.Range(0, 145).ToString());
@@ -59,9 +55,9 @@ public class QuestionHandler : MonoBehaviour
 
     public void SetAnswerButtonsEnabled(bool enabled)
     {
-        for (int i = 0; i < answerButtons.Length; i++)
+        foreach (Button answerButton in answerButtons)
         {
-            answerButtons[i].enabled = enabled;
+            answerButton.enabled = enabled;
         }
     }
 }

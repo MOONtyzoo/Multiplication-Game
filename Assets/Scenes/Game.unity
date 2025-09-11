@@ -2300,9 +2300,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionGiver
   questionText: {fileID: 1135794144}
   questionTimer: {fileID: 265435845}
-  answerButton1: {fileID: 1690883991}
-  answerButton2: {fileID: 1559168387}
-  answerButton3: {fileID: 727297179}
+  answerButtons:
+  - {fileID: 1690883991}
+  - {fileID: 1559168387}
+  - {fileID: 727297179}
 --- !u!1 &1891825670
 GameObject:
   m_ObjectHideFlags: 8
