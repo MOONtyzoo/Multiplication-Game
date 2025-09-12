@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
         currentState = GameStates.Countdown;
         screenSwitcher.SwitchScreen(ScreenTypes.Countdown);
         gameCountdown.StartCountdown();
-        questionHandler.ResetAttempts();
     }
 
     private void EnterGameplay()
@@ -60,6 +59,7 @@ public class GameManager : MonoBehaviour
         
         currentState = GameStates.Gameplay;
         screenSwitcher.SwitchScreen(ScreenTypes.Gameplay);
+        questionHandler.ResetAttempts();
         questionHandler.GenerateQuestion();
     }
     

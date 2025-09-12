@@ -13,8 +13,8 @@ public class QuestionHandler : MonoBehaviour
     [SerializeField] private QuestionTimer questionTimer;
     [SerializeField] private GameObject questionPanel;
     [SerializeField] private TextMeshProUGUI resultText;
-    private int numberCorrectAnswers;
-    private int answerAttempts;
+    private int numberCorrectAnswers = 0;
+    private int answerAttempts = 0;
 
     [SerializeField] private List<Button> answerButtons = new List<Button>();
     private List<TMP_Text> buttonsText = new List<TMP_Text>();
@@ -25,10 +25,10 @@ public class QuestionHandler : MonoBehaviour
         questionTimer.OnCountdownCompleted += () =>
         {
             answerAttempts++;
+            Debug.Log(answerAttempts);
             CheckForGameOver();
         };
-        numberCorrectAnswers = 0;
-        answerAttempts = 0;
+
         foreach (Button answerButton in answerButtons)
         {
             TMP_Text buttonText = answerButton.GetComponentInChildren<TMP_Text>();
@@ -63,16 +63,12 @@ public class QuestionHandler : MonoBehaviour
     {
         if (TMP.text == product.ToString())
         {
-            print("Correct Answer");
             numberCorrectAnswers++;
         }
-        else
-        {
-            print("Incorrect Answer");
-        }
         SetAnswerButtonsEnabled(false);
-        answerAttempts++;
         
+        answerAttempts++;
+        Debug.Log(answerAttempts);
         CheckForGameOver();
     }
 
