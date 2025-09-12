@@ -4,12 +4,15 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class QuestionHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private QuestionTimer questionTimer;
+    [SerializeField] private GameObject questionPanel;
+    [SerializeField] private TextMeshProUGUI resultText;
     private int numberCorrectAnswers;
     private int answerAttempts;
 
@@ -21,10 +24,8 @@ public class QuestionHandler : MonoBehaviour
     {
         questionTimer.OnCountdownCompleted += () =>
         {
-            if (answerAttempts < 3)
-            {
-                GenerateQuestion();
-            }
+            answerAttempts++;
+            CheckForGameOver();
         };
         numberCorrectAnswers = 0;
         answerAttempts = 0;
@@ -38,6 +39,8 @@ public class QuestionHandler : MonoBehaviour
 
     public void GenerateQuestion()
     {
+        questionPanel.SetActive(true);
+        resultText.GameObject().SetActive(false);
         questionTimer.StartCountdown();
         SetAnswerButtonsEnabled(true);
         int multiplicand = UnityEngine.Random.Range(0, 13);
@@ -69,10 +72,21 @@ public class QuestionHandler : MonoBehaviour
         }
         SetAnswerButtonsEnabled(false);
         answerAttempts++;
+        
+        CheckForGameOver();
+    }
 
+    private void CheckForGameOver()
+    {
         if (answerAttempts < 3)
         {
             GenerateQuestion();
+        }
+        else
+        {
+            questionPanel.SetActive(false);
+            resultText.GameObject().SetActive(true);
+            resultText.text = "You Got " + numberCorrectAnswers + " Correct!";
         }
     }
 
@@ -92,5 +106,6 @@ public class QuestionHandler : MonoBehaviour
     public void ResetAttempts()
     {
         answerAttempts = 0;
+        numberCorrectAnswers = 0;
     }
 }
