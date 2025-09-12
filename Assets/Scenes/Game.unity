@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundScroller
   scrollAngle: 0
-  scrollSpeed: 0.55
+  scrollSpeed: 0.275
 --- !u!1 &1802769286
 GameObject:
   m_ObjectHideFlags: 0
