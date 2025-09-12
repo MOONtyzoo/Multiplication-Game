@@ -35,7 +35,7 @@ public class QuestionHandler : MonoBehaviour
             answerButton.onClick.AddListener(() => AnswerQuestion(buttonText));
         }
     }
-    
+
     public void GenerateQuestion()
     {
         questionTimer.StartCountdown();
@@ -45,7 +45,7 @@ public class QuestionHandler : MonoBehaviour
         product = multiplicand * multiplier;
 
         questionText.text = "What is " + multiplicand + " X " + multiplier;
-        
+
         int answerChoice = UnityEngine.Random.Range(0, answerButtons.Count - 1);
         buttonsText[answerChoice].SetText(product.ToString());
 
@@ -61,7 +61,6 @@ public class QuestionHandler : MonoBehaviour
         if (TMP.text == product.ToString())
         {
             print("Correct Answer");
-            
             numberCorrectAnswers++;
         }
         else
@@ -70,6 +69,11 @@ public class QuestionHandler : MonoBehaviour
         }
         SetAnswerButtonsEnabled(false);
         answerAttempts++;
+
+        if (answerAttempts < 3)
+        {
+            GenerateQuestion();
+        }
     }
 
     public void SetAnswerButtonsEnabled(bool enabled)
@@ -83,5 +87,10 @@ public class QuestionHandler : MonoBehaviour
     public int GetAnswerAttempts()
     {
         return answerAttempts;
+    }
+
+    public void ResetAttempts()
+    {
+        answerAttempts = 0;
     }
 }

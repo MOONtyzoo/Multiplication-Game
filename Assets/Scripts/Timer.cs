@@ -22,6 +22,7 @@ public class Timer
 
     public void StartTimer(int duration)
     {
+        if (runningCoroutine != null) source.StopCoroutine(runningCoroutine);
         runningCoroutine = source.StartCoroutine(TimerCoroutine(duration));
     }
 
