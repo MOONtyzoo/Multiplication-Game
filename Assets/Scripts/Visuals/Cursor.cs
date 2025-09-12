@@ -4,13 +4,39 @@ public class Cursor : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] private Vector3 hotspotOffset;
-    
-    void Awake() {
+
+    [Space, Header("Sounds")]
+    [SerializeField] private AudioClip mouseDownSound;
+    [SerializeField] private AudioClip mouseUpSound;
+
+    private Animator animator;
+    private AudioSource audioSource;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
         UnityEngine.Cursor.visible = false;
     }
 
-    void Update() {
+    void Update()
+    {
         UpdateCursorPosition();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.Play("ClickDown", 0, 0.0f);
+            audioSource.clip = mouseDownSound;
+            audioSource.Play();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            animator.Play("ClickUp", 0, 0.0f);
+            audioSource.clip = mouseUpSound;
+            audioSource.Play();
+        }
     }
 
     // Code from https://stackoverflow.com/questions/43802207/position-ui-to-mouse-position-make-tooltip-panel-follow-cursor
