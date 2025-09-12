@@ -9,6 +9,7 @@ public class GameCountdown : MonoBehaviour
     private Timer timer;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource audioSource;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GameCountdown : MonoBehaviour
         timer.OnTimerTicked += (value) =>
         {
             animator.Play("CountdownPulse", 0, 0.0f);
+            audioSource.Play();
             UpdateText(value);
         };
         timer.OnTimerCompleted += () =>
