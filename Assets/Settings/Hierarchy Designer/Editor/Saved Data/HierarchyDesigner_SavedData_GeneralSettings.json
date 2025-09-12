@@ -18,7 +18,7 @@
         "RectTransform",
         "CanvasRenderer"
     ],
-    "MaximumComponentIconsAmount": 10,
+    "MaximumComponentIconsAmount": 3,
     "ExcludedTags": [
         "Untagged"
     ],
