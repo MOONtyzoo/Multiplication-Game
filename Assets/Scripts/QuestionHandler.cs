@@ -1,10 +1,7 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class QuestionHandler : MonoBehaviour
@@ -13,95 +10,110 @@ public class QuestionHandler : MonoBehaviour
     [SerializeField] private QuestionTimer questionTimer;
     [SerializeField] private GameObject questionPanel;
     [SerializeField] private TextMeshProUGUI resultText;
-    private int numberCorrectAnswers = 0;
-    private int answerAttempts = 0;
 
     [SerializeField] private List<Button> answerButtons = new List<Button>();
-    private List<TMP_Text> buttonsText = new List<TMP_Text>();
-    private int product;
+
+    [SerializeField] private int questionSetSize = 3;
+    private List<Question> questionSet = new List<Question>();
+    private int? submittedAnswer;
+
+    private int questionsAnswered = 0;
+    private int questionsAnsweredCorrectly = 0;
+
+    private bool answerSubmittedEventCheck = false;
+    private bool timerCompletedEventCheck = false;
+
+    private Coroutine quizCoroutine;
 
     private void Awake()
     {
-        questionTimer.OnCountdownCompleted += () =>
+        foreach (Button button in answerButtons)
         {
-            answerAttempts++;
-            Debug.Log(answerAttempts);
-            CheckForGameOver();
-        };
-
-        foreach (Button answerButton in answerButtons)
-        {
-            TMP_Text buttonText = answerButton.GetComponentInChildren<TMP_Text>();
-            buttonsText.Add(buttonText);
-            answerButton.onClick.AddListener(() => AnswerQuestion(buttonText));
+            button.onClick.AddListener(() => OnAnswerButtonClicked(button));
         }
+
+        questionTimer.OnCountdownCompleted += OnQuestionTimerCompleted;
     }
 
-    public void GenerateQuestion()
+    private void OnAnswerButtonClicked(Button button)
+    {
+        submittedAnswer = int.Parse(button.GetComponentInChildren<TMP_Text>().text);
+        answerSubmittedEventCheck = true;
+    }
+
+    private void OnQuestionTimerCompleted()
+    {
+        submittedAnswer = null;
+        timerCompletedEventCheck = true;
+    }
+
+    public void StartQuiz()
+    {
+        if (quizCoroutine != null) StopCoroutine(quizCoroutine);
+        quizCoroutine = StartCoroutine(QuizCoroutine());
+    }
+
+    private IEnumerator QuizCoroutine()
     {
         questionPanel.SetActive(true);
-        resultText.GameObject().SetActive(false);
-        questionTimer.StartCountdown();
-        SetAnswerButtonsEnabled(true);
-        int multiplicand = UnityEngine.Random.Range(0, 13);
-        int multiplier = UnityEngine.Random.Range(0, 13);
-        product = multiplicand * multiplier;
+        resultText.gameObject.SetActive(false);
 
-        questionText.text = "What is " + multiplicand + " X " + multiplier;
+        GenerateQuestionSet();
+        questionsAnswered = 0;
+        questionsAnsweredCorrectly = 0;
 
-        int answerChoice = UnityEngine.Random.Range(0, answerButtons.Count - 1);
-        buttonsText[answerChoice].SetText(product.ToString());
+        foreach (Question question in questionSet)
+        {
+            LoadQuestion(question);
+            questionTimer.StartCountdown();
 
+            /*
+                I wanted to pause the coroutine until one of these events occurs
+                Unfortunately you can't wait for an event directly, so I had to do
+                it indrectly using the "EventCheck" boolean variables
+            */
+            yield return new WaitUntil(() => answerSubmittedEventCheck || timerCompletedEventCheck);
+            answerSubmittedEventCheck = false;
+            timerCompletedEventCheck = false;
+
+            questionsAnswered++;
+            if (submittedAnswer == question.GetAnswer()) questionsAnsweredCorrectly++;
+        }
+
+        questionPanel.SetActive(false);
+        resultText.gameObject.SetActive(true);
+        resultText.text = "You got " + questionsAnsweredCorrectly + " / " + questionsAnswered + " questions correct!";
+    }
+
+    private void GenerateQuestionSet()
+    {
+        questionSet.Clear();
+        for (int i = 0; i < questionSetSize; i++)
+        {
+            Question newQuestion = new MultiplicationQuestion();
+            questionSet.Add(newQuestion);
+        }
+    }
+
+    private void LoadQuestion(Question question)
+    {
+        questionPanel.SetActive(true);
+        questionText.text = "What is " + question.GetNum1() + " " + question.GetSymbol() + " " + question.GetNum2() + "?";
+
+        int correctButtonIdx = Random.Range(0, answerButtons.Count);
+        int fakeAnswerIdx = 0;
         for (int i = 0; i < answerButtons.Count; i++)
         {
-            if (i != answerChoice)
-                buttonsText[i].SetText(UnityEngine.Random.Range(0, 145).ToString());
-        }
-    }
+            TMP_Text buttonText = answerButtons[i].GetComponentInChildren<TMP_Text>();
 
-    public void AnswerQuestion(TMP_Text TMP)
-    {
-        if (TMP.text == product.ToString())
-        {
-            numberCorrectAnswers++;
+            if (i == correctButtonIdx)
+            {
+                buttonText.text = question.GetAnswer().ToString();
+            }
+            else
+            {
+                buttonText.text = question.GetFakeAnswers()[fakeAnswerIdx++].ToString();
+            }
         }
-        SetAnswerButtonsEnabled(false);
-        
-        answerAttempts++;
-        Debug.Log(answerAttempts);
-        CheckForGameOver();
-    }
-
-    private void CheckForGameOver()
-    {
-        if (answerAttempts < 3)
-        {
-            GenerateQuestion();
-        }
-        else
-        {
-            questionPanel.SetActive(false);
-            resultText.GameObject().SetActive(true);
-            resultText.text = "You Got " + numberCorrectAnswers + " Correct!";
-        }
-    }
-
-    public void SetAnswerButtonsEnabled(bool enabled)
-    {
-        foreach (Button answerButton in answerButtons)
-        {
-            answerButton.enabled = enabled;
-        }
-    }
-
-    public int GetAnswerAttempts()
-    {
-        return answerAttempts;
-    }
-
-    public void ResetAttempts()
-    {
-        answerAttempts = 0;
-        numberCorrectAnswers = 0;
     }
 }

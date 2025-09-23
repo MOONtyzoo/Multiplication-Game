@@ -59,8 +59,7 @@ public class GameManager : MonoBehaviour
         
         currentState = GameStates.Gameplay;
         screenSwitcher.SwitchScreen(ScreenTypes.Gameplay);
-        questionHandler.ResetAttempts();
-        questionHandler.GenerateQuestion();
+        questionHandler.StartQuiz();
     }
     
 }
