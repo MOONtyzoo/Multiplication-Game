@@ -1306,6 +1306,57 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &684178270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684178271}
+  - component: {fileID: 684178272}
+  m_Layer: 0
+  m_Name: AchievementTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684178271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684178270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684178272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684178270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d073d96683b9044a453bf5d8d456e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Achievements.AchievementTracker
+  achievements:
+  - {fileID: 11400000, guid: 157de770f6f457548afe0a4565e374ce, type: 2}
+  - {fileID: 11400000, guid: 59c416a078cd4644a834b3b5d3015a97, type: 2}
+  - {fileID: 11400000, guid: 7ce31cafd7c17cf41985976d75234a67, type: 2}
+  - {fileID: 11400000, guid: ab3ccd1ed0276f4498d23ad16c2fe806, type: 2}
+  - {fileID: 11400000, guid: 782256cd71c0b424eb719c866a1b153b, type: 2}
+  - {fileID: 11400000, guid: 63181ea15fdf4884b9b80aac24fdbb9d, type: 2}
 --- !u!114 &727297179 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7454224350742561177, guid: 8099c564f30c35e4c9fde10bbaa026b1, type: 3}
@@ -2487,6 +2538,7 @@ MonoBehaviour:
   - {fileID: 1690883991}
   - {fileID: 1559168387}
   - {fileID: 727297179}
+  questionSetSize: 3
 --- !u!1 &1891825670
 GameObject:
   m_ObjectHideFlags: 8
@@ -3419,6 +3471,7 @@ SceneRoots:
   - {fileID: 1021996917}
   - {fileID: 2110591155}
   - {fileID: 172940035}
+  - {fileID: 684178271}
   - {fileID: 1891825671}
   - {fileID: 669055684}
   - {fileID: 660712585}
