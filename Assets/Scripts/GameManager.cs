@@ -12,15 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button startButton;
     [SerializeField] Button quitButton;
     [SerializeField] Button restartButton;
-
-    private enum GameStates
-    {
-        Menu,
-        Countdown,
-        Gameplay
-    }
-
-    private GameStates currentState;
+    [SerializeField] Button achievementsButton;
+    [SerializeField] Button achievementsBackButton;
 
     private void Awake()
     {
@@ -28,6 +21,8 @@ public class GameManager : MonoBehaviour
         gameCountdown.OnCountdownCompleted += EnterGameplay;
         quitButton.onClick.AddListener(QuitGame);
         restartButton.onClick.AddListener(EnterCountdown);
+        achievementsButton.onClick.AddListener(EnterAchievements);
+        achievementsBackButton.onClick.AddListener(EnterMenu);
     }
 
     private void Start()
@@ -37,7 +32,6 @@ public class GameManager : MonoBehaviour
 
     private void EnterMenu()
     {
-        currentState = GameStates.Menu;
         screenSwitcher.SwitchScreen(ScreenTypes.Menu);
     }
 
@@ -49,17 +43,20 @@ public class GameManager : MonoBehaviour
 
     private void EnterCountdown()
     {
-        currentState = GameStates.Countdown;
         screenSwitcher.SwitchScreen(ScreenTypes.Countdown);
         gameCountdown.StartCountdown();
     }
 
     private void EnterGameplay()
     {
-        
-        currentState = GameStates.Gameplay;
+
         screenSwitcher.SwitchScreen(ScreenTypes.Gameplay);
         questionHandler.StartQuiz();
     }
-    
+
+
+    private void EnterAchievements()
+    {
+        screenSwitcher.SwitchScreen(ScreenTypes.Achievements);
+    }
 }

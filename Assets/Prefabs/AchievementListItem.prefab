@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1482465867670546935}
   - component: {fileID: 2660410996368074387}
   - component: {fileID: 2965973564753149629}
+  - component: {fileID: -6852850338279030345}
   m_Layer: 5
   m_Name: AchievementListItem
   m_TagString: Untagged
@@ -168,6 +169,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-6852850338279030345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540775034349405198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb965aa013534a4a8db428e956295ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementListItemUI
+  titleText: {fileID: 4982827182866856815}
+  descriptionText: {fileID: 1628545619183549247}
+  icon: {fileID: 1615131320428672698}
 --- !u!1 &805836308432675202
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,8 +218,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 7.6}
-  m_SizeDelta: {x: 434.8, y: 49.1}
+  m_AnchoredPosition: {x: 0, y: -0.29000092}
+  m_SizeDelta: {x: 429, y: 49.1}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &7091565181937615051
 CanvasRenderer:
@@ -233,7 +249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play for 20 minutes
+  m_text: Play for 20 minutes blah blah blah blah blah
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 144989e7c8f012144948a84a5cbcfab1, type: 2}
   m_sharedMaterial: {fileID: -3650809518905469379, guid: 144989e7c8f012144948a84a5cbcfab1, type: 2}
@@ -260,19 +276,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 21.57
+  m_fontSizeBase: 21.57
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -43.63
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

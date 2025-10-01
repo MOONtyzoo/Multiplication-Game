@@ -5,6 +5,8 @@ namespace Achievements
 {
     public class AchievementTracker : MonoBehaviour
     {
-        [SerializeField] List<AchievementSO> achievements;
+        [SerializeField] private List<AchievementSO> achievements;
+
+        public List<AchievementSO> GetAchievements() => achievements;
     }
 }
