@@ -77,7 +77,13 @@ public class QuestionHandler : MonoBehaviour
             timerCompletedEventCheck = false;
 
             questionsAnswered++;
-            if (submittedAnswer == question.GetAnswer()) questionsAnsweredCorrectly++;
+            bool answeredCorrectly = submittedAnswer == question.GetAnswer();
+            if (answeredCorrectly) questionsAnsweredCorrectly++;
+            AchievementEvents.OnQuestionAnswered.Invoke(new AchievementEvents.OnQuestionAnsweredArgs
+            {
+                AnsweredCorrectly = answeredCorrectly,
+                TimeRemaining = questionTimer.GetTimeRemaining(),
+            });
         }
 
         questionPanel.SetActive(false);

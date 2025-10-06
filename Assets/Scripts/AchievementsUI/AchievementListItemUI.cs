@@ -9,35 +9,25 @@ public class AchievementListItemUI : MonoBehaviour
     [SerializeField] private Image icon;
     private CanvasGroup canvasGroup;
 
-    AchievementSO trackedAchievement;
+    Achievement trackedAchievement;
 
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void TrackAchievement(AchievementSO achievement)
+    public void TrackAchievement(Achievement achievement)
     {
         trackedAchievement = achievement;
-        trackedAchievement.OnValueChanged += UpdateUI;
+        AchievementEvents.OnAchievementGet += _ => UpdateUI();
         UpdateUI();
     }
 
     public void UpdateUI()
     {
-        titleText.text = trackedAchievement.title;
-        descriptionText.text = trackedAchievement.description;
-        icon.sprite = trackedAchievement.icon;
-
-        if (trackedAchievement is UnlockableAchievementSO)
-        {
-            
-        }
-
-        if (trackedAchievement is ProgressAchievementSO)
-        {
-
-        }
+        titleText.text = trackedAchievement.AchievementTitle;
+        descriptionText.text = trackedAchievement.Description;
+        icon.sprite = trackedAchievement.Thumbnail;
     }
 
     public void SetOpacity(float newOpacity)

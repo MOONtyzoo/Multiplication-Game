@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using Achievements;
 using UnityEngine;
 
 public class AchievementListUI : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private AchievementTracker achievementTracker;
+    [SerializeField] private AchievementManager achievementManager;
     [SerializeField] private AchievementListItemUI achievementListItemUIPrefab;
     [SerializeField] private Transform achievementUiParent;
     [SerializeField] private RectTransform scrollRectViewport;
@@ -15,7 +14,7 @@ public class AchievementListUI : MonoBehaviour
 
     private List<AchievementListItemUI> achievementUis = new List<AchievementListItemUI>();
 
-    private void Awake()
+    private void Start()
     {
         ClearAchievementObjects(); // Clear achievements manually placed in editor
         PopulateAchievementsList();
@@ -36,7 +35,7 @@ public class AchievementListUI : MonoBehaviour
 
     private void PopulateAchievementsList()
     {
-        foreach (AchievementSO achievement in achievementTracker.GetAchievements())
+        foreach (Achievement achievement in achievementManager.Achievements)
         {
             AchievementListItemUI achievementUI = Instantiate(achievementListItemUIPrefab, achievementUiParent);
             achievementUis.Add(achievementUI);

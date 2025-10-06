@@ -25,10 +25,10 @@ public class QuestionTimer : MonoBehaviour
         };
     }
 
-    public void StartCountdown()
-    {
-        timer.StartTimer(10);
-    }
+    public void StartCountdown() => timer.StartTimer(10);
+
+    public int GetTimeRemaining() => timer.GetTimerValue();
+
     private void UpdateText(int value)
     {
         value = timer.GetTimerValue();
