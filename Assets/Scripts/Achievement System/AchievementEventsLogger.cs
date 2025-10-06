@@ -35,7 +35,7 @@ public class AchievementEventsLogger : MonoBehaviour
         AchievementEvents.OnRoundEnded += (AchievementEvents.OnRoundEndedArgs args) =>
         {
             if (!logRoundEnded) return;
-            string questionsCorrectRatio = $"{args.NumQuestionsAnswered} / {args.NumCorrectQuestions}";
+            string questionsCorrectRatio = $"{args.NumCorrectQuestions} / {args.NumQuestionsAnswered}";
             Debug.Log($"Round Ended! Answered {questionsCorrectRatio} questions correctly in a total of {args.TotalTimeTaken} seconds!");
         };
 
