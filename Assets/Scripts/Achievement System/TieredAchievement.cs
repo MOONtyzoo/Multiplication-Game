@@ -68,7 +68,7 @@ public abstract class TieredAchievement : Achievement
     public override void Save()
     {
         base.Save();
-        PlayerPrefs.SetInt(AchievementSaveKey, _progress);
+        PlayerPrefs.SetInt(AchievementSaveKey + "_progress", _progress);
 
         string[] tierStates = new string[_tiers.Length];
         for (int i = 0; i < _tiers.Length; i++)
@@ -84,7 +84,7 @@ public abstract class TieredAchievement : Achievement
     public override void Load()
     {
         base.Load();
-        _progress = PlayerPrefs.GetInt(AchievementSaveKey, 0);
+        _progress = PlayerPrefs.GetInt(AchievementSaveKey + "_progress", 0);
 
         string tierString = PlayerPrefs.GetString(AchievementSaveKey + "_tiers", "");
         string[] states = tierString.Split(',');
@@ -103,10 +103,10 @@ public abstract class TieredAchievement : Achievement
 
             // Determine what is the current tier based off of data
             _tiers[i].Achieved = states[i] == "1";
-            if (i > _currentTierIndex && _tiers[i].Achieved)
+            if (_tiers[i].Achieved)
             {
-                _currentTier = _tiers[i];
-                _currentTierIndex = i;
+                _currentTierIndex = Mathf.Clamp(_currentTierIndex+1, 0, _tiers.Length-1);
+                _currentTier = _tiers[_currentTierIndex];
             }
         }
     }

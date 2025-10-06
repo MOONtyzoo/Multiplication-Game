@@ -28,11 +28,11 @@ public abstract class Achievement : ScriptableObject
 
     public virtual void Save()
     {
-        PlayerPrefs.SetInt(AchievementSaveKey, _achievementGotten ? 1 : 0);
+        PlayerPrefs.SetInt(AchievementSaveKey + "_gotten", _achievementGotten ? 1 : 0);
     }
 
     public virtual void Load()
     {
-        _achievementGotten = PlayerPrefs.GetInt(AchievementSaveKey) == 1 ? true : false;
+        _achievementGotten = PlayerPrefs.GetInt(AchievementSaveKey + "_gotten") == 1 ? true : false;
     }
 }
