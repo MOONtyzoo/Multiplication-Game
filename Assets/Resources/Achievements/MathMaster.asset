@@ -15,9 +15,15 @@ MonoBehaviour:
   Description: Answer X questions correctly
   Thumbnail: {fileID: 0}
   _tiers:
+  - Requirement: 2
+    TierDescription: Answer 10 questions correctly.
+    TierThumbnail: {fileID: 0}
+    Achieved: 1
+  - Requirement: 5
+    TierDescription: Answer 50 questions correctly.
+    TierThumbnail: {fileID: 0}
+    Achieved: 1
   - Requirement: 10
-    Achieved: 0
-  - Requirement: 50
-    Achieved: 0
-  - Requirement: 100
-    Achieved: 0
+    TierDescription: Answer 100 questions correctly.
+    TierThumbnail: {fileID: 0}
+    Achieved: 1

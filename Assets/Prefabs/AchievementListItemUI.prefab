@@ -185,6 +185,12 @@ MonoBehaviour:
   titleText: {fileID: 4982827182866856815}
   descriptionText: {fileID: 1628545619183549247}
   icon: {fileID: 1615131320428672698}
+  panel: {fileID: 2965973564753149629}
+  progressText: {fileID: 1277852185995930244}
+  progressSlider: {fileID: 5156501540462307233}
+  NotUnlockedColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  MaxedColor: {r: 1, g: 0.81960785, b: 0.20784314, a: 1}
 --- !u!225 &7667665812877494224
 CanvasGroup:
   m_ObjectHideFlags: 0

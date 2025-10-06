@@ -3,10 +3,13 @@ using UnityEngine;
 public abstract class Achievement : ScriptableObject
 {
     public virtual string AchievementTitle => GetType().ToString();
+    public virtual string AchievementDescription => Description;
+    public virtual Sprite AchievementThumbnail => Thumbnail;
+    private bool _achievementGotten = false;
     
     [TextArea]
-    public string Description;
-    public Sprite Thumbnail;
+    [SerializeField] private string Description;
+    [SerializeField] private Sprite Thumbnail;
 
     protected string AchievementSaveKey => GetType().Name;
     
@@ -15,14 +18,21 @@ public abstract class Achievement : ScriptableObject
     
     protected void GetAchievement()
     {
-        Debug.Log($"{AchievementTitle} Achieved!");
+        _achievementGotten = true;
         AchievementEvents.OnAchievementGet?.Invoke(new AchievementEvents.OnAchievementGetArgs
         {
             AchievementObtained = this
         });
     }
+    public bool HasAchievement() => _achievementGotten;
 
-    public abstract void Save();
+    public virtual void Save()
+    {
+        PlayerPrefs.SetInt(AchievementSaveKey, _achievementGotten ? 1 : 0);
+    }
 
-    public abstract void Load();
+    public virtual void Load()
+    {
+        _achievementGotten = PlayerPrefs.GetInt(AchievementSaveKey) == 1 ? true : false;
+    }
 }
