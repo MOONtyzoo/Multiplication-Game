@@ -19,11 +19,11 @@ MonoBehaviour:
     TierDescription: Answer 10 questions correctly.
     TierThumbnail: {fileID: 0}
     Achieved: 1
-  - Requirement: 5
+  - Requirement: 4
     TierDescription: Answer 50 questions correctly.
     TierThumbnail: {fileID: 0}
     Achieved: 1
-  - Requirement: 10
+  - Requirement: 6
     TierDescription: Answer 100 questions correctly.
     TierThumbnail: {fileID: 0}
     Achieved: 1

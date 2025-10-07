@@ -40,7 +40,7 @@ public class AchievementListItemUI : MonoBehaviour
         descriptionText.text = trackedAchievement.AchievementDescription;
         icon.sprite = trackedAchievement.AchievementThumbnail;
 
-        panel.color = trackedAchievement.HasAchievement() ? NormalColor : NotUnlockedColor;
+        panel.color = trackedAchievement.HasAchievement ? NormalColor : NotUnlockedColor;
 
         if (trackedAchievement is TieredAchievement)
         {
@@ -51,10 +51,10 @@ public class AchievementListItemUI : MonoBehaviour
         }
         else
         {
-            progressSlider.value = trackedAchievement.HasAchievement() ? 1.0f : 0.0f;
-            int progress = trackedAchievement.HasAchievement() ? 1 : 0;
+            progressSlider.value = trackedAchievement.HasAchievement ? 1.0f : 0.0f;
+            int progress = trackedAchievement.HasAchievement ? 1 : 0;
             progressText.text = $"{progress} / {1}";
-            if (trackedAchievement.HasAchievement()) { panel.color = MaxedColor; }
+            if (trackedAchievement.HasAchievement) { panel.color = MaxedColor; }
         }
     }
 

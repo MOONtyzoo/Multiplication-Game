@@ -50,8 +50,8 @@ public abstract class TieredAchievement : Achievement
 
         _currentTier.Achieved = true;
 
-        bool isLastTier = _currentTierIndex < _tiers.Length - 1;
-        if (isLastTier)
+        bool isLastTier = _currentTierIndex == _tiers.Length - 1;
+        if (!isLastTier)
         {
             _currentTierIndex++;
             _currentTier = _tiers[_currentTierIndex];
