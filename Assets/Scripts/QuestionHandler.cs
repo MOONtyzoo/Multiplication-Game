@@ -24,6 +24,7 @@ public class QuestionHandler : MonoBehaviour
     private bool timerCompletedEventCheck = false;
 
     private Coroutine quizCoroutine;
+    private int totalTimeTaken = 0;
 
     private void Awake()
     {
@@ -84,8 +85,17 @@ public class QuestionHandler : MonoBehaviour
                 AnsweredCorrectly = answeredCorrectly,
                 TimeRemaining = questionTimer.GetTimeRemaining(),
             });
+            totalTimeTaken += (10 - questionTimer.GetTimeRemaining());
+            
+            
         }
 
+        AchievementEvents.OnRoundEnded.Invoke(new AchievementEvents.OnRoundEndedArgs
+        {
+            NumQuestionsAnswered = questionsAnswered,
+            NumCorrectQuestions = questionsAnsweredCorrectly,
+            TotalTimeTaken = totalTimeTaken
+        });
         questionPanel.SetActive(false);
         resultText.gameObject.SetActive(true);
         resultText.text = "You got " + questionsAnsweredCorrectly + " / " + questionsAnswered + " questions correct!";

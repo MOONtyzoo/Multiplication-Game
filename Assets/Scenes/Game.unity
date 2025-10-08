@@ -2156,6 +2156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d91a14e40598dc4c843dc668fe7455c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementEventsLogger
+  logAchievementGet: 1
+  logTieredAchievementProgressed: 1
+  logQuestionAnswered: 1
+  logRoundEnded: 1
+  logHuhButton: 1
 --- !u!1 &540968631
 GameObject:
   m_ObjectHideFlags: 0
