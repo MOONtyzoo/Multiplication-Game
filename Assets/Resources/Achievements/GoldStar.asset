@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b1fa9ca78b94ee1bca9e285b2d93ba, type: 3}
   m_Name: GoldStar
   m_EditorClassIdentifier: Assembly-CSharp::GoldStar
+  _title: Gold Star
   _description: gold
   _thumbnail: {fileID: 0}
   _tiers:
   - Requirement: 1
-    TierDescription: 
+    TierDescription: Get 1 perfect round
     TierThumbnail: {fileID: 0}
-    Achieved: 0
+    Achieved: 1
+  - Requirement: 2
+    TierDescription: Get 10 perfect rounds
+    TierThumbnail: {fileID: 0}
+    Achieved: 1
   - Requirement: 3
-    TierDescription: 
+    TierDescription: Get 30 perfect rounds
     TierThumbnail: {fileID: 0}
-    Achieved: 0
-  - Requirement: 6
-    TierDescription: 
-    TierThumbnail: {fileID: 0}
-    Achieved: 0
+    Achieved: 1

@@ -5,6 +5,7 @@ public abstract class TieredAchievement : Achievement
     public override string AchievementTitle => $"{GetType()} {RomanNumerals.ToRoman(_currentTierIndex+1)}";
     public override string AchievementDescription => _currentTier.TierDescription;
     public override Sprite AchievementThumbnail => _currentTier.TierThumbnail;
+    public override bool IsMaxed => (_currentTierIndex == _tiers.Length - 1) && _currentTier.Achieved;
     
     [System.Serializable]
     public class Tier
@@ -36,7 +37,7 @@ public abstract class TieredAchievement : Achievement
             tieredAchievement = this,
         });
 
-        if (!IsMaxed() && _progress >= _currentTier.Requirement)
+        if (!IsMaxed && _progress >= _currentTier.Requirement)
         {
             IncreaseTier();
         }
@@ -62,8 +63,6 @@ public abstract class TieredAchievement : Achievement
             tieredAchievement = this,
         });
     }
-
-    public bool IsMaxed() => (_currentTierIndex == _tiers.Length - 1) && _currentTier.Achieved;
 
     public override void Save()
     {

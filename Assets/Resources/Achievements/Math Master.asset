@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d638f3c259f7e546a1f6b8c548a9f2d, type: 3}
-  m_Name: MathMaster
+  m_Name: Math Master
   m_EditorClassIdentifier: Assembly-CSharp::MathMaster
+  _title: Math Master
   _description: 
   _thumbnail: {fileID: 0}
   _tiers:
-  - Requirement: 2
+  - Requirement: 1
     TierDescription: Answer 10 questions correctly.
     TierThumbnail: {fileID: 0}
     Achieved: 1
-  - Requirement: 4
+  - Requirement: 3
     TierDescription: Answer 50 questions correctly.
     TierThumbnail: {fileID: 0}
     Achieved: 1

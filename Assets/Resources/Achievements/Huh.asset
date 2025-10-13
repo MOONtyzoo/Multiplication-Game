@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92eebfa0c79a4194fad425c35a04affb, type: 3}
   m_Name: Huh
   m_EditorClassIdentifier: Assembly-CSharp::Huh
-  Description: During a round, click on the equation.
-  Thumbnail: {fileID: 0}
+  _title: Huh?
+  _description: ...you can click that?
+  _thumbnail: {fileID: 0}

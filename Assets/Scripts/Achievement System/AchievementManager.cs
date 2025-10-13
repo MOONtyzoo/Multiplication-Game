@@ -3,10 +3,20 @@ using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
+    public static AchievementManager Instance;
+
     public Achievement[] Achievements { get; private set; }
 
     public void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
+
         Achievements = Resources.LoadAll<Achievement>("Achievements");
         foreach (Achievement achievement in Achievements)
         {

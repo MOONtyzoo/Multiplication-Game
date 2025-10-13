@@ -29,8 +29,24 @@ public class AchievementListItemUI : MonoBehaviour
     public void TrackAchievement(Achievement achievement)
     {
         trackedAchievement = achievement;
-        AchievementEvents.OnAchievementGet += _ => UpdateUI();
-        AchievementEvents.OnTieredAchievementProgressed += _ => UpdateUI();
+        AchievementEvents.OnAchievementGet += OnAchievementGet;
+        AchievementEvents.OnTieredAchievementProgressed += OnTieredAchievementProgressed;
+        UpdateUI();
+    }
+
+    public void OnDestroy()
+    {
+        AchievementEvents.OnAchievementGet -= OnAchievementGet;
+        AchievementEvents.OnTieredAchievementProgressed -= OnTieredAchievementProgressed;
+    }
+
+    private void OnAchievementGet(AchievementEvents.OnAchievementGetArgs args)
+    {
+        UpdateUI();
+    }
+
+    private void OnTieredAchievementProgressed(AchievementEvents.OnTieredAchievementProgressedArgs args)
+    {
         UpdateUI();
     }
 
@@ -47,7 +63,7 @@ public class AchievementListItemUI : MonoBehaviour
             TieredAchievement tieredAchievement = trackedAchievement as TieredAchievement;
             progressSlider.value = tieredAchievement.GetProgressPercentage();
             progressText.text = $"{tieredAchievement.GetProgressValue()} / {tieredAchievement.GetTierRequirement()}";
-            if (tieredAchievement.IsMaxed()) { panel.color = MaxedColor; }
+            if (tieredAchievement.IsMaxed) { panel.color = MaxedColor; }
         }
         else
         {

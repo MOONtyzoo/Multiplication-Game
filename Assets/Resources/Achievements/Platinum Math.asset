@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 678b1070023b34528902c202f697d188, type: 3}
-  m_Name: BuzzerBeater
-  m_EditorClassIdentifier: Assembly-CSharp::BuzzerBeater
-  _description: buzzer
+  m_Script: {fileID: 11500000, guid: 0ac525dcf380d2641ad5659429263a3d, type: 3}
+  m_Name: Platinum Math
+  m_EditorClassIdentifier: Assembly-CSharp::PlatinumMath
+  _title: Platinum Math
+  _description: Earn all achievements
   _thumbnail: {fileID: 0}

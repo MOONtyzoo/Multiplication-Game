@@ -2,14 +2,15 @@ using UnityEngine;
 
 public abstract class Achievement : ScriptableObject
 {
-    public virtual string AchievementTitle => GetType().ToString();
+    public virtual string AchievementTitle => _title;
     public virtual string AchievementDescription => _description;
     public virtual Sprite AchievementThumbnail => _thumbnail;
     public bool HasAchievement => _achievementGotten;
+    public virtual bool IsMaxed => _achievementGotten;
     private bool _achievementGotten = false;
-    
-    [TextArea]
-    [SerializeField] private string _description;
+
+    [SerializeField] private string _title;
+    [SerializeField, TextArea(5, 1)] private string _description;
     [SerializeField] private Sprite _thumbnail;
 
     protected string AchievementSaveKey => GetType().Name;
@@ -19,6 +20,8 @@ public abstract class Achievement : ScriptableObject
     
     protected void GetAchievement()
     {
+        if (IsMaxed) return;
+        
         _achievementGotten = true;
         AchievementEvents.OnAchievementGet?.Invoke(new AchievementEvents.OnAchievementGetArgs
         {
