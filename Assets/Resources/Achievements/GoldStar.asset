@@ -9,21 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d638f3c259f7e546a1f6b8c548a9f2d, type: 3}
-  m_Name: MathMaster
-  m_EditorClassIdentifier: Assembly-CSharp::MathMaster
-  _description: 
+  m_Script: {fileID: 11500000, guid: 44b1fa9ca78b94ee1bca9e285b2d93ba, type: 3}
+  m_Name: GoldStar
+  m_EditorClassIdentifier: Assembly-CSharp::GoldStar
+  _description: gold
   _thumbnail: {fileID: 0}
   _tiers:
-  - Requirement: 2
-    TierDescription: Answer 10 questions correctly.
+  - Requirement: 1
+    TierDescription: 
     TierThumbnail: {fileID: 0}
-    Achieved: 1
-  - Requirement: 4
-    TierDescription: Answer 50 questions correctly.
+    Achieved: 0
+  - Requirement: 3
+    TierDescription: 
     TierThumbnail: {fileID: 0}
-    Achieved: 1
+    Achieved: 0
   - Requirement: 6
-    TierDescription: Answer 100 questions correctly.
+    TierDescription: 
     TierThumbnail: {fileID: 0}
-    Achieved: 1
+    Achieved: 0
