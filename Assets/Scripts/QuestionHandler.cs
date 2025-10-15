@@ -10,6 +10,7 @@ public class QuestionHandler : MonoBehaviour
     [SerializeField] private QuestionTimer questionTimer;
     [SerializeField] private GameObject questionPanel;
     [SerializeField] private TextMeshProUGUI resultText;
+    [SerializeField] private Button achievementsButton1;
 
     [SerializeField] private List<Button> answerButtons = new List<Button>();
 
@@ -58,6 +59,7 @@ public class QuestionHandler : MonoBehaviour
     {
         questionPanel.SetActive(true);
         resultText.gameObject.SetActive(false);
+        achievementsButton1.gameObject.SetActive(false);
 
         GenerateQuestionSet();
         questionsAnswered = 0;
@@ -98,6 +100,7 @@ public class QuestionHandler : MonoBehaviour
         });
         questionPanel.SetActive(false);
         resultText.gameObject.SetActive(true);
+        achievementsButton1.gameObject.SetActive(true);
         resultText.text = "You got " + questionsAnsweredCorrectly + " / " + questionsAnswered + " questions correct!";
     }
 

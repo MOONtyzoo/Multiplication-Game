@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button restartButton;
     [SerializeField] Button achievementsButton;
     [SerializeField] Button achievementsBackButton;
+    [SerializeField] Button achievementsButton1;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         quitButton.onClick.AddListener(QuitGame);
         restartButton.onClick.AddListener(EnterCountdown);
         achievementsButton.onClick.AddListener(EnterAchievements);
+        achievementsButton1.onClick.AddListener(EnterAchievements);
         achievementsBackButton.onClick.AddListener(EnterMenu);
     }
 
