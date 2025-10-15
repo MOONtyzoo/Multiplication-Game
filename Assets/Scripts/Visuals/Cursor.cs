@@ -17,7 +17,7 @@ public class Cursor : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
-        UnityEngine.Cursor.visible = false;
+        //UnityEngine.Cursor.visible = false;
     }
 
     void Update()

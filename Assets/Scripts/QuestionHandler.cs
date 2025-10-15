@@ -51,8 +51,15 @@ public class QuestionHandler : MonoBehaviour
 
     public void StartQuiz()
     {
+        answerSubmittedEventCheck = false;
+        timerCompletedEventCheck = false;
         if (quizCoroutine != null) StopCoroutine(quizCoroutine);
         quizCoroutine = StartCoroutine(QuizCoroutine());
+    }
+
+    public void StopQuiz()
+    {
+        StopCoroutine(QuizCoroutine());
     }
 
     private IEnumerator QuizCoroutine()

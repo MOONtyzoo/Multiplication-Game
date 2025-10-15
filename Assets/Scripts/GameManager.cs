@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         screenSwitcher.SwitchScreen(ScreenTypes.Countdown);
         gameCountdown.StartCountdown();
+        questionHandler.StopQuiz();
     }
 
     private void EnterGameplay()
