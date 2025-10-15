@@ -20,11 +20,11 @@ MonoBehaviour:
     TierDescription: Get 1 perfect round
     TierThumbnail: {fileID: 0}
     Achieved: 1
-  - Requirement: 2
+  - Requirement: 10
     TierDescription: Get 10 perfect rounds
     TierThumbnail: {fileID: 0}
     Achieved: 1
-  - Requirement: 3
+  - Requirement: 30
     TierDescription: Get 30 perfect rounds
     TierThumbnail: {fileID: 0}
     Achieved: 1
