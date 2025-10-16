@@ -9,8 +9,6 @@ public class QuestionHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private QuestionTimer questionTimer;
     [SerializeField] private GameObject questionPanel;
-    [SerializeField] private TextMeshProUGUI resultText;
-    [SerializeField] private Button achievementsButton1;
 
     [SerializeField] private List<Button> answerButtons = new List<Button>();
 
@@ -64,10 +62,6 @@ public class QuestionHandler : MonoBehaviour
 
     private IEnumerator QuizCoroutine()
     {
-        questionPanel.SetActive(true);
-        resultText.gameObject.SetActive(false);
-        achievementsButton1.gameObject.SetActive(false);
-
         GenerateQuestionSet();
         questionsAnswered = 0;
         questionsAnsweredCorrectly = 0;
@@ -95,8 +89,6 @@ public class QuestionHandler : MonoBehaviour
                 TimeRemaining = questionTimer.GetTimeRemaining(),
             });
             totalTimeTaken += (10 - questionTimer.GetTimeRemaining());
-            
-            
         }
 
         AchievementEvents.OnRoundEnded.Invoke(new AchievementEvents.OnRoundEndedArgs
@@ -105,10 +97,6 @@ public class QuestionHandler : MonoBehaviour
             NumCorrectQuestions = questionsAnsweredCorrectly,
             TotalTimeTaken = totalTimeTaken
         });
-        questionPanel.SetActive(false);
-        resultText.gameObject.SetActive(true);
-        achievementsButton1.gameObject.SetActive(true);
-        resultText.text = "You got " + questionsAnsweredCorrectly + " / " + questionsAnswered + " questions correct!";
     }
 
     private void GenerateQuestionSet()

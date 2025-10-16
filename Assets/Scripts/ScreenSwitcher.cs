@@ -6,12 +6,13 @@ public enum ScreenTypes
     Menu,
     Countdown,
     Gameplay,
+    Results,
     Achievements,
 }
 
 public class ScreenSwitcher : MonoBehaviour
 {
-    [SerializeField] private List<CanvasGroup> screens = new List<CanvasGroup>(3);
+    [SerializeField] private List<CanvasGroup> screens;
     private Dictionary<ScreenTypes, CanvasGroup> screensDict = new Dictionary<ScreenTypes, CanvasGroup>();
 
     private CanvasGroup currentScreen;

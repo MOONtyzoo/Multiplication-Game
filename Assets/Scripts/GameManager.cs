@@ -10,20 +10,31 @@ public class GameManager : MonoBehaviour
     [SerializeField] QuestionTimer questionTimer;
     [SerializeField] QuestionHandler questionHandler;
     [SerializeField] Button startButton;
-    [SerializeField] Button quitButton;
-    [SerializeField] Button restartButton;
+
+    [SerializeField] Button gameplayQuitButton;
+    [SerializeField] Button resultsQuitButton;
+
+    [SerializeField] Button gameplayRestartButton;
+    [SerializeField] Button resultsRestartButton;
+
     [SerializeField] Button achievementsButton;
     [SerializeField] Button achievementsBackButton;
-    [SerializeField] Button achievementsButton1;
 
     private void Awake()
     {
         startButton.onClick.AddListener(EnterCountdown);
         gameCountdown.OnCountdownCompleted += EnterGameplay;
-        quitButton.onClick.AddListener(QuitGame);
-        restartButton.onClick.AddListener(EnterCountdown);
+
+        // Called at the end of gameplay
+        AchievementEvents.OnRoundEnded += (AchievementEvents.OnRoundEndedArgs args) => EnterResults();
+
+        gameplayQuitButton.onClick.AddListener(QuitGame);
+        resultsQuitButton.onClick.AddListener(QuitGame);
+
+        gameplayRestartButton.onClick.AddListener(EnterCountdown);
+        resultsRestartButton.onClick.AddListener(EnterCountdown);
+
         achievementsButton.onClick.AddListener(EnterAchievements);
-        achievementsButton1.onClick.AddListener(EnterAchievements);
         achievementsBackButton.onClick.AddListener(EnterMenu);
     }
 
@@ -55,8 +66,13 @@ public class GameManager : MonoBehaviour
 
         screenSwitcher.SwitchScreen(ScreenTypes.Gameplay);
         questionHandler.StartQuiz();
+        AchievementEvents.OnRoundStarted?.Invoke();
     }
 
+    private void EnterResults()
+    {
+        screenSwitcher.SwitchScreen(ScreenTypes.Results);
+    }
 
     private void EnterAchievements()
     {

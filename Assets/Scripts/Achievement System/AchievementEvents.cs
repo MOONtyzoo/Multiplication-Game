@@ -16,6 +16,7 @@ public static class AchievementEvents
         public TieredAchievement tieredAchievement;
     }
     
+    public static Action OnRoundStarted;
     // On Round Ended (Invoke this on a per project basis)
     public static Action<OnRoundEndedArgs> OnRoundEnded;
     public struct OnRoundEndedArgs
@@ -35,7 +36,8 @@ public static class AchievementEvents
 
     // On Question Clicked (Invoke this on a per project basis)
     public static Action OnQuestionClicked;
-    
+
     // On Second Passed (Invoke this on a per project basis)
     public static Action OnSecondPassed;
+
 }
