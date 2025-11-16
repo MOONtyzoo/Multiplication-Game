@@ -4335,6 +4335,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879821990}
   m_CullTransparentMesh: 1
+--- !u!114 &951058957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 274677620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1021996916
 GameObject:
   m_ObjectHideFlags: 8
@@ -5781,6 +5792,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 738.09, y: 476.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1509611777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 36264590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1512153779
 GameObject:
   m_ObjectHideFlags: 0
@@ -6283,6 +6305,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d01a381732e524ca91d7eb628926b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionsManager
+  numQuestionsOptions:
+  - button: {fileID: 1810233188}
+    value: 3
+  - button: {fileID: 1839701415}
+    value: 4
+  - button: {fileID: 951058957}
+    value: 5
+  numQuestionsText: {fileID: 1536178621}
+  quizTypeOptions:
+  - button: {fileID: 1640325563}
+    value: 0
+  - button: {fileID: 1765861397}
+    value: 1
+  - button: {fileID: 2063548581}
+    value: 2
+  - button: {fileID: 1854502727}
+    value: 3
+  - button: {fileID: 1509611777}
+    value: 4
+  quizTypeText: {fileID: 1985186853}
 --- !u!1001 &1640325558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6405,6 +6447,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8917128219775443973, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
   m_PrefabInstance: {fileID: 1640325558}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1640325563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 1640325558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1641390356
 GameObject:
   m_ObjectHideFlags: 0
@@ -6799,6 +6852,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8917128219775443973, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
   m_PrefabInstance: {fileID: 1765861392}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1765861397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 1765861392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1789713029
 GameObject:
   m_ObjectHideFlags: 0
@@ -7062,6 +7126,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8917128219775443973, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
   m_PrefabInstance: {fileID: 1810233183}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1810233188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 1810233183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1837850674
 GameObject:
   m_ObjectHideFlags: 0
@@ -7107,6 +7182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db718017180b2a34dac48f4d7d125b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestionGiver
+  optionsManager: {fileID: 1613593326}
   questionText: {fileID: 34784582}
   questionTimer: {fileID: 265435845}
   questionPanel: {fileID: 1492759157}
@@ -7114,7 +7190,28 @@ MonoBehaviour:
   - {fileID: 1690883991}
   - {fileID: 1559168387}
   - {fileID: 727297179}
-  questionSetSize: 3
+--- !u!114 &1839701415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 86695532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1854502727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 498210447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1884270197
 GameObject:
   m_ObjectHideFlags: 0
@@ -8433,6 +8530,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047966498}
   m_CullTransparentMesh: 1
+--- !u!114 &2063548581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7549507551293582786, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
+  m_PrefabInstance: {fileID: 477529919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &2104824914 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8917128219775443973, guid: f1a64ab0c6e80394fa710511f871d795, type: 3}
@@ -8497,7 +8605,7 @@ MonoBehaviour:
   screenSwitcher: {fileID: 2118332396}
   gameCountdown: {fileID: 172940034}
   questionTimer: {fileID: 265435845}
-  quizManager: {fileID: 0}
+  quizManager: {fileID: 1837850676}
   menuStartButton: {fileID: 2104824915}
   settingsStartButton: {fileID: 232088565}
   gameplayQuitButton: {fileID: 18814063}
