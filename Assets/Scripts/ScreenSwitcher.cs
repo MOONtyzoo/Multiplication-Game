@@ -4,6 +4,7 @@ using UnityEngine;
 public enum ScreenTypes
 {
     Menu,
+    Settings,
     Countdown,
     Gameplay,
     Results,

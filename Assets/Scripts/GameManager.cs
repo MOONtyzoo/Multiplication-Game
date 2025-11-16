@@ -5,34 +5,37 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] ScreenSwitcher screenSwitcher;
-    [SerializeField] GameCountdown gameCountdown;
-    [SerializeField] QuestionTimer questionTimer;
-    [SerializeField] QuestionHandler questionHandler;
-    [SerializeField] Button startButton;
+    [SerializeField] private ScreenSwitcher screenSwitcher;
+    [SerializeField] private GameCountdown gameCountdown;
+    [SerializeField] private QuestionTimer questionTimer;
+    [SerializeField] private QuizManager quizManager;
+    
+    [SerializeField] private Button menuStartButton;
+    [SerializeField] private Button settingsStartButton;
 
-    [SerializeField] Button gameplayQuitButton;
-    [SerializeField] Button resultsQuitButton;
+    [SerializeField] private Button gameplayQuitButton;
+    [SerializeField] private Button resultsQuitButton;
 
-    [SerializeField] Button gameplayRestartButton;
-    [SerializeField] Button resultsRestartButton;
+    [SerializeField] private Button gameplayRestartButton;
+    [SerializeField] private Button resultsRestartButton;
 
-    [SerializeField] Button achievementsButton;
-    [SerializeField] Button achievementsBackButton;
+    [SerializeField] private Button achievementsButton;
+    [SerializeField] private Button achievementsBackButton;
 
     private void Awake()
     {
-        startButton.onClick.AddListener(EnterCountdown);
+        menuStartButton.onClick.AddListener(EnterSettings);
+        settingsStartButton.onClick.AddListener(EnterCountdown);
         gameCountdown.OnCountdownCompleted += EnterGameplay;
 
         // Called at the end of gameplay
-        AchievementEvents.OnRoundEnded += (AchievementEvents.OnRoundEndedArgs args) => EnterResults();
+        AchievementEvents.OnRoundEnded += _ => EnterResults();
 
         gameplayQuitButton.onClick.AddListener(QuitGame);
         resultsQuitButton.onClick.AddListener(QuitGame);
 
-        gameplayRestartButton.onClick.AddListener(EnterCountdown);
-        resultsRestartButton.onClick.AddListener(EnterCountdown);
+        gameplayRestartButton.onClick.AddListener(EnterSettings);
+        resultsRestartButton.onClick.AddListener(EnterSettings);
 
         achievementsButton.onClick.AddListener(EnterAchievements);
         achievementsBackButton.onClick.AddListener(EnterMenu);
@@ -54,18 +57,23 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    private void EnterSettings()
+    {
+        screenSwitcher.SwitchScreen(ScreenTypes.Settings);
+    }
+
     private void EnterCountdown()
     {
         screenSwitcher.SwitchScreen(ScreenTypes.Countdown);
         gameCountdown.StartCountdown();
-        questionHandler.StopQuiz();
+        quizManager.StopQuiz();
     }
 
     private void EnterGameplay()
     {
 
         screenSwitcher.SwitchScreen(ScreenTypes.Gameplay);
-        questionHandler.StartQuiz();
+        quizManager.StartQuiz();
         AchievementEvents.OnRoundStarted?.Invoke();
     }
 

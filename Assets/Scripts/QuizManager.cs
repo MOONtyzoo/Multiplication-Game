@@ -4,15 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestionHandler : MonoBehaviour
+public class QuizManager : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private OptionsManager optionsManager;
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private QuestionTimer questionTimer;
     [SerializeField] private GameObject questionPanel;
-
     [SerializeField] private List<Button> answerButtons = new List<Button>();
-
-    [SerializeField] private int questionSetSize = 3;
+    
     private List<Question> questionSet = new List<Question>();
     private int? submittedAnswer;
 
@@ -24,6 +24,11 @@ public class QuestionHandler : MonoBehaviour
 
     private Coroutine quizCoroutine;
     private int totalTimeTaken = 0;
+
+    public enum QuizTypes
+    {
+        Addition, Subtraction, Multiplication, Division, All
+    }
 
     private void Awake()
     {
@@ -70,12 +75,7 @@ public class QuestionHandler : MonoBehaviour
         {
             LoadQuestion(question);
             questionTimer.StartCountdown();
-
-            /*
-                I wanted to pause the coroutine until one of these events occurs
-                Unfortunately you can't wait for an event directly, so I had to do
-                it indrectly using the "EventCheck" boolean variables
-            */
+            
             yield return new WaitUntil(() => answerSubmittedEventCheck || timerCompletedEventCheck);
             answerSubmittedEventCheck = false;
             timerCompletedEventCheck = false;
@@ -102,11 +102,38 @@ public class QuestionHandler : MonoBehaviour
     private void GenerateQuestionSet()
     {
         questionSet.Clear();
-        for (int i = 0; i < questionSetSize; i++)
+        for (int i = 0; i < optionsManager.options.numQuestions; i++)
         {
-            Question newQuestion = new MultiplicationQuestion();
+            Question newQuestion = GenerateQuestion();
             questionSet.Add(newQuestion);
         }
+    }
+
+    private Question GenerateQuestion()
+    {
+        switch (optionsManager.options.quizType)
+        {
+            case QuizTypes.Addition: return new AdditionQuestion();
+            case QuizTypes.Subtraction: return new SubtractionQuestion();
+            case QuizTypes.Multiplication: return new MultiplicationQuestion();
+            case QuizTypes.Division: return new DivisionQuestion();
+            case QuizTypes.All: return GenerateRandomQuestion();
+        }
+        
+        return null;
+    }
+
+    private Question GenerateRandomQuestion()
+    {
+        int randomChoice = Random.Range(0, 4);
+        switch (randomChoice)
+        {
+            case 0: return new AdditionQuestion();
+            case 1: return new SubtractionQuestion();
+            case 2: return new MultiplicationQuestion();
+            case 3: return new DivisionQuestion();
+        }
+        return null;
     }
 
     private void LoadQuestion(Question question)
