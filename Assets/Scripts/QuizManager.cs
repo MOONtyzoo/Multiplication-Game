@@ -95,7 +95,8 @@ public class QuizManager : MonoBehaviour
         {
             NumQuestionsAnswered = questionsAnswered,
             NumCorrectQuestions = questionsAnsweredCorrectly,
-            TotalTimeTaken = totalTimeTaken
+            TotalTimeTaken = totalTimeTaken,
+            QuizType = optionsManager.options.quizType
         });
     }
 

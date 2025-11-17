@@ -24,6 +24,7 @@ public static class AchievementEvents
         public int NumQuestionsAnswered;
         public int NumCorrectQuestions;
         public float TotalTimeTaken;
+        public QuizManager.QuizTypes  QuizType;
     }
     
     // On Question Answered (Invoke this on a per project basis)
