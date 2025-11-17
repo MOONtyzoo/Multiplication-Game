@@ -21,29 +21,56 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Button achievementsButton;
     [SerializeField] private Button achievementsBackButton;
+    private GameStates gameState;
 
     private void Awake()
     {
-        menuStartButton.onClick.AddListener(EnterSettings);
-        settingsStartButton.onClick.AddListener(EnterCountdown);
-        gameCountdown.OnCountdownCompleted += EnterGameplay;
+        menuStartButton.onClick.AddListener(() => SwitchState(GameStates.Options));
+        settingsStartButton.onClick.AddListener(() => SwitchState(GameStates.Countdown));
+        gameCountdown.OnCountdownCompleted += () => SwitchState(GameStates.Game);
 
         // Called at the end of gameplay
-        AchievementEvents.OnRoundEnded += _ => EnterResults();
+        AchievementEvents.OnRoundEnded += _ => SwitchState(GameStates.Results);
 
         gameplayQuitButton.onClick.AddListener(QuitGame);
         resultsQuitButton.onClick.AddListener(QuitGame);
 
-        gameplayRestartButton.onClick.AddListener(EnterSettings);
-        resultsRestartButton.onClick.AddListener(EnterSettings);
+        gameplayRestartButton.onClick.AddListener(() => SwitchState(GameStates.Options));
+        resultsRestartButton.onClick.AddListener(() => SwitchState(GameStates.Options));
 
-        achievementsButton.onClick.AddListener(EnterAchievements);
-        achievementsBackButton.onClick.AddListener(EnterMenu);
+        achievementsButton.onClick.AddListener(() => SwitchState(GameStates.Achievements));
+        achievementsBackButton.onClick.AddListener(() => SwitchState(GameStates.MainMenu));
     }
 
     private void Start()
     {
-        EnterMenu();
+        SwitchState(GameStates.MainMenu);
+    }
+
+    private void SwitchState(GameStates newState)
+    {
+        switch (newState)
+        {
+            case GameStates.MainMenu:
+                EnterMenu();
+                break;
+            case GameStates.Options:
+                EnterSettings();
+                break;
+            case GameStates.Game:
+                EnterGameplay();
+                break;
+            case GameStates.Results:
+                EnterResults();
+                break;
+            case GameStates.Achievements:
+                EnterAchievements();
+                break;
+            case GameStates.Countdown:
+                EnterCountdown();
+                break;
+        }
+        gameState = newState;
     }
 
     private void EnterMenu()
